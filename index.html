@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Word & Character Counter – Count Words, Characters, Sentences & More</title>
+  <meta name="description" content="Free online word and character counter. Instantly count words, characters, sentences, paragraphs, and reading time. Perfect for essays, tweets, and SEO." />
+  <meta name="keywords" content="word counter, character counter, word count, character count, count words online, letter counter" />
+  <link rel="canonical" href="https://words.quickutils.tools/" />
+  <meta property="og:title" content="Word & Character Counter" />
+  <meta property="og:description" content="Count words, characters, sentences, and reading time instantly. Free and accurate." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://words.quickutils.tools/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:#FDFAF4;--cream-dark:#F5F0E4;--cream-darker:#EDE6D0;
+      --ink:#1C1812;--ink-mid:#4A4030;--ink-light:#8A7D65;
+      --rust:#C4622D;--rust-light:#F0D4C4;--rust-glow:rgba(196,98,45,.1);
+      --teal:#2A7D6E;--border:#DDD5C0;--radius:6px;--radius-lg:12px;
+    }
+    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
+    .ad-banner-top{background:var(--cream-dark);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:11px;color:var(--ink-light);letter-spacing:.08em;text-transform:uppercase;}
+    header{background:var(--ink);color:var(--cream);padding:48px 24px 40px;text-align:center;}
+    .header-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-light);margin-bottom:16px;}
+    header h1{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:14px;}
+    header h1 em{font-style:italic;color:#F0A875;font-weight:300;}
+    header p{font-size:1rem;color:var(--ink-light);max-width:420px;margin:0 auto;font-weight:300;}
+    main{max-width:800px;margin:0 auto;padding:32px 20px 80px;}
+    .bookmark-tip{margin-bottom:16px;background:white;border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;font-size:13px;color:var(--ink-light);display:flex;align-items:center;gap:10px;}
+    .bookmark-tip kbd{background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 7px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);}
+    .stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:16px;}
+    .stat-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:14px 12px;text-align:center;}
+    .stat-card.primary{background:var(--rust-glow);border-color:var(--rust);}
+    .stat-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:6px;}
+    .stat-value{font-family:'DM Mono',monospace;font-size:1.6rem;font-weight:500;color:var(--ink);line-height:1;}
+    .stat-card.primary .stat-value{color:var(--rust);}
+    .textarea-wrapper{position:relative;margin-bottom:16px;}
+    textarea{width:100%;min-height:280px;padding:20px;font-family:'DM Sans',sans-serif;font-size:1rem;line-height:1.75;border:1px solid var(--border);border-radius:var(--radius-lg);background:white;color:var(--ink);outline:none;resize:vertical;transition:border-color .15s;}
+    textarea:focus{border-color:var(--rust);}
+    textarea::placeholder{color:var(--ink-light);}
+    .clear-btn{position:absolute;top:12px;right:12px;padding:6px 14px;background:var(--cream-dark);border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-mid);cursor:pointer;transition:background .12s;}
+    .clear-btn:hover{background:var(--cream-darker);}
+    .limits-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;align-items:center;}
+    .limits-label{font-size:12px;color:var(--ink-light);}
+    .limit-chip{padding:5px 12px;background:var(--cream-dark);border:1px solid var(--border);border-radius:20px;font-size:12px;cursor:pointer;color:var(--ink-mid);transition:all .12s;font-family:'DM Mono',monospace;}
+    .limit-chip:hover,.limit-chip.active{background:var(--rust-light);border-color:var(--rust);color:var(--rust);}
+    .limit-indicator{font-size:12px;color:var(--ink-light);margin-left:auto;}
+    .limit-indicator.over{color:var(--rust);font-weight:500;}
+    .progress-bar{height:3px;background:var(--cream-darker);border-radius:2px;margin-bottom:20px;overflow:hidden;display:none;}
+    .progress-fill{height:100%;background:var(--teal);border-radius:2px;transition:width .2s,background .2s;}
+    .progress-fill.over{background:var(--rust);}
+    .extra-stats{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:0;}
+    .extra-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;}
+    .extra-stat-label{color:var(--ink-light);font-size:12px;margin-bottom:2px;}
+    .extra-stat-value{font-family:'DM Mono',monospace;color:var(--ink);font-weight:500;}
+    .utility-bar{margin-top:16px;background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+    .utility-bar-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);width:100%;margin-bottom:4px;}
+    .share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid var(--border);text-decoration:none;transition:opacity .15s,transform .1s;color:white;background:var(--ink-mid);}
+    .share-btn:hover{opacity:.85;transform:translateY(-1px);}
+    .share-btn.tw{background:#000;border-color:#000;}
+    .share-btn.fb{background:#1877F2;border-color:#1877F2;}
+    .share-btn.wa{background:#25D366;border-color:#25D366;color:#000;}
+    .share-btn.rd{background:#FF4500;border-color:#FF4500;}
+    .share-btn.cl{background:transparent;color:var(--ink-mid);border-color:var(--border);}
+    .share-btn.cl.copied{border-color:var(--teal);color:var(--teal);}
+    .related-section{margin-top:24px;}
+    .related-section h2{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:14px;}
+    .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;}
+    .related-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-decoration:none;transition:border-color .15s;display:block;}
+    .related-card:hover{border-color:var(--rust);}
+    .related-card-title{font-size:.9rem;font-weight:500;color:var(--ink);margin-bottom:4px;}
+    .related-card-desc{font-size:12px;color:var(--ink-light);}
+    .related-card-emoji{font-size:1.4rem;margin-bottom:8px;}
+    .embed-section{margin-top:16px;background:white;border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+    .embed-section h3{font-size:11px;font-weight:500;color:var(--ink-light);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase;}
+    .embed-code{background:var(--cream-dark);border:1px solid var(--border);border-radius:var(--radius);padding:12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-mid);word-break:break-all;margin-bottom:10px;line-height:1.6;}
+    .embed-copy-btn{padding:7px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+    .embed-copy-btn:hover{border-color:var(--rust);color:var(--rust);}
+    .embed-copy-btn.copied{border-color:var(--teal);color:var(--teal);}
+    .ad-inline{background:var(--cream-dark);border:1px dashed var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;color:var(--ink-light);font-size:11px;letter-spacing:.08em;text-transform:uppercase;min-height:90px;display:flex;align-items:center;justify-content:center;margin:24px 0;}
+    .content-section{margin-top:48px;}
+    .content-section h2{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .content-section p{color:var(--ink-mid);font-size:.95rem;margin-bottom:14px;line-height:1.75;}
+    .faq-item{margin-bottom:20px;}
+    .faq-item h3{font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:6px;}
+    .faq-item p{font-size:.9rem;color:var(--ink-light);margin:0;line-height:1.65;}
+    footer{background:var(--ink);color:var(--ink-light);text-align:center;padding:32px 24px;font-size:13px;margin-top:64px;}
+    footer a{color:#F0A875;text-decoration:none;}
+    footer a:hover{text-decoration:underline;}
+    footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap;}
+  </style>
+</head>
+<body>
+  <div class="ad-banner-top">Advertisement</div>
+  <header>
+    <p class="header-eyebrow">Free Online Tool</p>
+    <h1>Word &amp; Character<br><em>Counter</em></h1>
+    <p>Paste or type your text below for an instant word count, character count, reading time, and more.</p>
+  </header>
+  <main>
+    <div class="bookmark-tip"><span>🔖</span><span id="bookmark-text">Press <kbd>Ctrl+D</kbd> to bookmark this tool and come back anytime.</span></div>
+    <div class="stats-bar">
+      <div class="stat-card primary"><div class="stat-label">Words</div><div class="stat-value" id="word-count">0</div></div>
+      <div class="stat-card"><div class="stat-label">Characters</div><div class="stat-value" id="char-count">0</div></div>
+      <div class="stat-card"><div class="stat-label">No spaces</div><div class="stat-value" id="char-no-space">0</div></div>
+      <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="sentence-count">0</div></div>
+      <div class="stat-card"><div class="stat-label">Paragraphs</div><div class="stat-value" id="para-count">0</div></div>
+      <div class="stat-card"><div class="stat-label">Read time</div><div class="stat-value" id="read-time">0s</div></div>
+    </div>
+    <div class="textarea-wrapper">
+      <textarea id="text-input" placeholder="Start typing or paste your text here..." oninput="analyzeText()" autofocus></textarea>
+      <button class="clear-btn" onclick="clearText()">Clear</button>
+    </div>
+    <div class="limits-row">
+      <span class="limits-label">Limits:</span>
+      <button class="limit-chip" onclick="setLimit(280,this)">Twitter/X</button>
+      <button class="limit-chip" onclick="setLimit(2200,this)">Instagram</button>
+      <button class="limit-chip" onclick="setLimit(500,this)">LinkedIn</button>
+      <button class="limit-chip" onclick="setLimit(160,this)">Meta desc</button>
+      <button class="limit-chip" onclick="setLimit(60,this)">Title tag</button>
+      <span class="limit-indicator" id="limit-indicator"></span>
+    </div>
+    <div class="progress-bar" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="extra-stats">
+      <div class="extra-stats-grid">
+        <div class="extra-stat"><div class="extra-stat-label">Unique words</div><div class="extra-stat-value" id="unique-words">0</div></div>
+        <div class="extra-stat"><div class="extra-stat-label">Avg word length</div><div class="extra-stat-value" id="avg-word-len">0</div></div>
+        <div class="extra-stat"><div class="extra-stat-label">Longest word</div><div class="extra-stat-value" id="longest-word">—</div></div>
+        <div class="extra-stat"><div class="extra-stat-label">Speaking time</div><div class="extra-stat-value" id="speak-time">0s</div></div>
+      </div>
+    </div>
+    <div class="utility-bar">
+      <span class="utility-bar-label">Share this tool with friends &amp; colleagues:</span>
+      <a class="share-btn tw" id="sh-tw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+      <a class="share-btn fb" id="sh-fb" href="#" target="_blank" rel="noopener">Facebook</a>
+      <a class="share-btn wa" id="sh-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="share-btn rd" id="sh-rd" href="#" target="_blank" rel="noopener">Reddit</a>
+      <button class="share-btn cl" id="sh-cl" onclick="copyLink()">Copy link</button>
+    </div>
+    <div class="related-section">
+      <h2>More free tools</h2>
+      <div class="related-grid" id="related-tools-grid"></div>
+    </div>
+    <div class="embed-section">
+      <h3>Embed this tool on your site</h3>
+      <p style="font-size:12px;color:var(--ink-light);margin-bottom:10px;">Free to embed. Includes a "Powered by quickutils.tools" link.</p>
+      <div class="embed-code">&lt;iframe src="https://words.quickutils.tools/?embed=1" width="100%" height="520" frameborder="0" title="Word and Character Counter — quickutils.tools"&gt;&lt;/iframe&gt;</div>
+      <button class="embed-copy-btn" onclick="copyEmbed(this)">Copy embed code</button>
+    </div>
+    <div class="ad-inline">Advertisement · 728×90</div>
+    <div class="content-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item"><h3>How many words is a 5 minute read?</h3><p>At an average reading speed of 200–250 words per minute, a 5 minute read is approximately <strong>1,000–1,250 words</strong>. This tool calculates reading time automatically based on 225 words per minute.</p></div>
+      <div class="faq-item"><h3>How many characters is a tweet?</h3><p>Twitter/X allows up to <strong>280 characters</strong> per post for standard accounts. Click the "Twitter/X" limit button above to track your count in real time.</p></div>
+      <div class="faq-item"><h3>How many characters should a meta description be?</h3><p>Google typically displays meta descriptions up to <strong>155–160 characters</strong>. Anything longer gets truncated in search results. Use the "Meta desc" limit button above to stay within range.</p></div>
+      <div class="faq-item"><h3>Does this tool count spaces as characters?</h3><p>Yes — the "Characters" count includes spaces. The "No spaces" count excludes them. Both are shown above so you can use whichever metric your platform requires.</p></div>
+      <div class="faq-item"><h3>How many words is a 1,000 character passage?</h3><p>A 1,000 character passage contains approximately <strong>150–170 words</strong>, depending on average word length. English words average around 5–6 characters including spaces.</p></div>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-links"><a href="/privacy.html">Privacy Policy</a><a href="/about.html">About</a><a href="https://quickutils.tools">All Tools</a></div>
+    <p>&copy; 2026 <a href="https://quickutils.tools">quickutils.tools</a> — Text is processed in your browser. Nothing is stored or transmitted.</p>
+  </footer>
+  <script>
+    const TOOL_URL = 'https://words.quickutils.tools/';
+    const SHARE_MSG = encodeURIComponent('Free word & character counter — great for writers, students, and SEO: ' + TOOL_URL);
+    const ENC_URL = encodeURIComponent(TOOL_URL);
+
+    const isMac = /mac/i.test(navigator.platform);
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+    const isAndroid = /android/i.test(navigator.userAgent);
+    if (isIOS) document.getElementById('bookmark-text').innerHTML = '🔖 Tap the share button (↑) then "Add to Home Screen" to save this tool.';
+    else if (isAndroid) document.getElementById('bookmark-text').innerHTML = '🔖 Tap the browser menu (⋮) then "Add to Home Screen" to save this tool.';
+    else if (isMac) document.getElementById('bookmark-text').innerHTML = '🔖 Press <kbd>Cmd+D</kbd> to bookmark this tool and come back anytime.';
+
+    document.getElementById('sh-tw').href = `https://twitter.com/intent/tweet?text=${SHARE_MSG}`;
+    document.getElementById('sh-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${ENC_URL}`;
+    document.getElementById('sh-wa').href = `https://wa.me/?text=${SHARE_MSG}`;
+    document.getElementById('sh-rd').href = `https://www.reddit.com/submit?url=${ENC_URL}&title=${encodeURIComponent('Free word and character counter for writers, students, and SEO')}`;
+
+    function copyLink() {
+      navigator.clipboard.writeText(TOOL_URL).then(() => {
+        const btn = document.getElementById('sh-cl');
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy link'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+    function copyEmbed(btn) {
+      const code = document.querySelector('.embed-code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = '✓ Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy embed code'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    let currentLimit = null;
+    function analyzeText() {
+      const text = document.getElementById('text-input').value;
+      const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
+      const wc = words.length === 1 && words[0] === '' ? 0 : words.length;
+      const cc = text.length;
+      const cn = text.replace(/\s/g,'').length;
+      const sc = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
+      const pc = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
+      const rm = wc / 225;
+      const rt = rm < 1 ? `${Math.ceil(rm*60)}s` : `${Math.ceil(rm)}m`;
+      const sm = wc / 130;
+      const st = sm < 1 ? `${Math.ceil(sm*60)}s` : `${Math.ceil(sm)}m`;
+      const uw = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g,''))).size;
+      const al = wc > 0 ? (words.reduce((a,w) => a + w.replace(/[^a-zA-Z]/g,'').length, 0) / wc).toFixed(1) : 0;
+      const lw = wc > 0 ? words.reduce((a,b) => a.length > b.length ? a : b).replace(/[^a-zA-Z]/g,'') : '—';
+      document.getElementById('word-count').textContent = wc.toLocaleString();
+      document.getElementById('char-count').textContent = cc.toLocaleString();
+      document.getElementById('char-no-space').textContent = cn.toLocaleString();
+      document.getElementById('sentence-count').textContent = sc.toLocaleString();
+      document.getElementById('para-count').textContent = pc.toLocaleString();
+      document.getElementById('read-time').textContent = rt;
+      document.getElementById('unique-words').textContent = uw.toLocaleString();
+      document.getElementById('avg-word-len').textContent = al;
+      document.getElementById('longest-word').textContent = lw || '—';
+      document.getElementById('speak-time').textContent = st;
+      if (currentLimit) updateLimit(cc);
+    }
+
+    function setLimit(limit, el) {
+      document.querySelectorAll('.limit-chip').forEach(c => c.classList.remove('active'));
+      if (currentLimit === limit) {
+        currentLimit = null;
+        document.getElementById('progress-bar').style.display = 'none';
+        document.getElementById('limit-indicator').textContent = '';
+        return;
+      }
+      currentLimit = limit; el.classList.add('active');
+      document.getElementById('progress-bar').style.display = 'block';
+      updateLimit(document.getElementById('text-input').value.length);
+    }
+
+    function updateLimit(cc) {
+      if (!currentLimit) return;
+      const pct = Math.min((cc / currentLimit) * 100, 100);
+      const over = cc > currentLimit;
+      const fill = document.getElementById('progress-fill');
+      fill.style.width = pct + '%'; fill.className = 'progress-fill' + (over ? ' over' : '');
+      const ind = document.getElementById('limit-indicator');
+      ind.textContent = over ? `${cc - currentLimit} over limit` : `${currentLimit - cc} remaining`;
+      ind.className = 'limit-indicator' + (over ? ' over' : '');
+    }
+
+    function clearText() { document.getElementById('text-input').value = ''; analyzeText(); }
+
+    // Embed mode
+    const _p = new URLSearchParams(window.location.search);
+    if (_p.get('embed') === '1') {
+      document.querySelector('.ad-banner-top').style.display = 'none';
+      document.querySelector('header').style.display = 'none';
+      document.querySelector('.related-section') && (document.querySelector('.related-section').style.display = 'none');
+      document.querySelector('.embed-section') && (document.querySelector('.embed-section').style.display = 'none');
+      document.querySelector('.content-section') && (document.querySelector('.content-section').style.display = 'none');
+      document.querySelector('.ad-inline') && (document.querySelector('.ad-inline').style.display = 'none');
+      document.querySelector('footer').innerHTML = '<div style="text-align:center;padding:12px;font-size:12px;font-family:sans-serif;color:#8A7D65;">Powered by <a href="https://quickutils.tools" target="_blank" style="color:#C4622D;text-decoration:none;font-weight:500;">quickutils.tools</a> — free online utility tools</div>';
+    }
+  </script>
+  <script src="https://quickutils.tools/tools.js" onload="renderRelatedTools({currentUrl:'https://words.quickutils.tools/'})"></script>
+</body>
+</html>
