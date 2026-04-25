@@ -3,93 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Word & Character Counter – Count Words, Characters, Sentences & More</title>
-  <meta name="description" content="Free online word and character counter. Instantly count words, characters, sentences, paragraphs, and reading time. Perfect for essays, tweets, and SEO." />
-  <meta name="keywords" content="word counter, character counter, word count, character count, count words online, letter counter" />
-  <link rel="canonical" href="https://words.quickutils.tools/" />
-  <meta property="og:title" content="Word & Character Counter" />
-  <meta property="og:description" content="Count words, characters, sentences, and reading time instantly. Free and accurate." />
+  <title>Binary, Hex & Decimal Converter – Instant Number Base Conversion</title>
+  <meta name="description" content="Convert between binary, hexadecimal, decimal, and octal instantly. Free online number base converter for developers and students." />
+  <meta name="keywords" content="binary to decimal, hex to decimal, decimal to binary, binary converter, hexadecimal converter, number base converter, binary hex decimal" />
+  <link rel="canonical" href="https://binary.quickutils.tools/" />
+  <meta property="og:title" content="Binary / Hex / Decimal Converter" />
+  <meta property="og:description" content="Convert between binary, hex, decimal, and octal instantly. Free tool for developers and students." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://words.quickutils.tools/" />
+  <meta property="og:url" content="https://binary.quickutils.tools/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --cream:#FDFAF4;--cream-dark:#F5F0E4;--cream-darker:#EDE6D0;
-      --ink:#1C1812;--ink-mid:#4A4030;--ink-light:#8A7D65;
-      --rust:#C4622D;--rust-light:#F0D4C4;--rust-glow:rgba(196,98,45,.1);
-      --teal:#2A7D6E;--border:#DDD5C0;--radius:6px;--radius-lg:12px;
+      --bg:#F4F6F8;--white:#FFFFFF;--surface:#EAECF0;--border:#D0D5DD;
+      --ink:#101828;--ink-mid:#344054;--ink-light:#667085;
+      --blue:#2563EB;--blue-light:#EFF6FF;--blue-border:#BFDBFE;
+      --green:#059669;--green-light:#ECFDF5;
+      --orange:#D97706;--orange-light:#FFFBEB;
+      --purple:#7C3AED;--purple-light:#F5F3FF;
+      --radius:8px;--radius-lg:12px;
     }
-    body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;}
-    .ad-banner-top{background:var(--cream-dark);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:11px;color:var(--ink-light);letter-spacing:.08em;text-transform:uppercase;}
-    header{background:var(--ink);color:var(--cream);padding:48px 24px 40px;text-align:center;}
-    .header-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-light);margin-bottom:16px;}
-    header h1{font-family:'Fraunces',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:14px;}
-    header h1 em{font-style:italic;color:#F0A875;font-weight:300;}
-    header p{font-size:1rem;color:var(--ink-light);max-width:420px;margin:0 auto;font-weight:300;}
-    main{max-width:800px;margin:0 auto;padding:32px 20px 80px;}
-    .bookmark-tip{margin-bottom:16px;background:white;border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;font-size:13px;color:var(--ink-light);display:flex;align-items:center;gap:10px;}
-    .bookmark-tip kbd{background:var(--cream-dark);border:1px solid var(--border);border-radius:4px;padding:1px 7px;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);}
-    .stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:16px;}
-    .stat-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:14px 12px;text-align:center;}
-    .stat-card.primary{background:var(--rust-glow);border-color:var(--rust);}
-    .stat-label{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:6px;}
-    .stat-value{font-family:'DM Mono',monospace;font-size:1.6rem;font-weight:500;color:var(--ink);line-height:1;}
-    .stat-card.primary .stat-value{color:var(--rust);}
-    .textarea-wrapper{position:relative;margin-bottom:16px;}
-    textarea{width:100%;min-height:280px;padding:20px;font-family:'DM Sans',sans-serif;font-size:1rem;line-height:1.75;border:1px solid var(--border);border-radius:var(--radius-lg);background:white;color:var(--ink);outline:none;resize:vertical;transition:border-color .15s;}
-    textarea:focus{border-color:var(--rust);}
-    textarea::placeholder{color:var(--ink-light);}
-    .clear-btn{position:absolute;top:12px;right:12px;padding:6px 14px;background:var(--cream-dark);border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-mid);cursor:pointer;transition:background .12s;}
-    .clear-btn:hover{background:var(--cream-darker);}
-    .limits-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;align-items:center;}
-    .limits-label{font-size:12px;color:var(--ink-light);}
-    .limit-chip{padding:5px 12px;background:var(--cream-dark);border:1px solid var(--border);border-radius:20px;font-size:12px;cursor:pointer;color:var(--ink-mid);transition:all .12s;font-family:'DM Mono',monospace;}
-    .limit-chip:hover,.limit-chip.active{background:var(--rust-light);border-color:var(--rust);color:var(--rust);}
-    .limit-indicator{font-size:12px;color:var(--ink-light);margin-left:auto;}
-    .limit-indicator.over{color:var(--rust);font-weight:500;}
-    .progress-bar{height:3px;background:var(--cream-darker);border-radius:2px;margin-bottom:20px;overflow:hidden;display:none;}
-    .progress-fill{height:100%;background:var(--teal);border-radius:2px;transition:width .2s,background .2s;}
-    .progress-fill.over{background:var(--rust);}
-    .extra-stats{background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:0;}
-    .extra-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;}
-    .extra-stat-label{color:var(--ink-light);font-size:12px;margin-bottom:2px;}
-    .extra-stat-value{font-family:'DM Mono',monospace;color:var(--ink);font-weight:500;}
-    .utility-bar{margin-top:16px;background:white;border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+    body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+    .ad-banner-top{background:var(--white);border-bottom:1px solid var(--border);text-align:center;padding:8px 16px;font-size:11px;color:var(--ink-light);letter-spacing:.08em;text-transform:uppercase;}
+    header{background:var(--ink);color:white;padding:48px 24px 40px;text-align:center;}
+    .header-eyebrow{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#60A5FA;margin-bottom:16px;}
+    header h1{font-family:'IBM Plex Mono',monospace;font-size:clamp(1.6rem,4vw,2.8rem);font-weight:700;line-height:1.2;margin-bottom:14px;}
+    header h1 em{font-style:normal;color:#60A5FA;}
+    header p{font-size:1rem;color:#94A3B8;max-width:440px;margin:0 auto;font-weight:300;}
+    main{max-width:720px;margin:0 auto;padding:32px 20px 80px;}
+    .bookmark-tip{margin-bottom:16px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px;font-size:13px;color:var(--ink-light);display:flex;align-items:center;gap:10px;}
+    .bookmark-tip kbd{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1px 7px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);}
+    .bases-grid{display:grid;gap:12px;margin-bottom:16px;}
+    .base-card{background:var(--white);border:2px solid var(--border);border-radius:var(--radius-lg);padding:20px;transition:border-color .15s;}
+    .base-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+    .base-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);}
+    .base-badge{font-family:'IBM Plex Mono',monospace;font-size:11px;padding:3px 8px;border-radius:4px;font-weight:500;}
+    .badge-decimal{background:var(--blue-light);color:var(--blue);}
+    .badge-binary{background:var(--green-light);color:var(--green);}
+    .badge-hex{background:var(--orange-light);color:var(--orange);}
+    .badge-octal{background:var(--purple-light);color:var(--purple);}
+    .base-input{width:100%;font-family:'IBM Plex Mono',monospace;font-size:1.4rem;font-weight:500;padding:12px 14px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--ink);outline:none;transition:border-color .15s,background .15s;letter-spacing:.05em;}
+    .base-input:focus{border-color:var(--blue);background:var(--white);}
+    .base-input.error{border-color:#EF4444;background:#FEF2F2;}
+    .base-input::placeholder{color:var(--border);font-weight:400;}
+    .base-hint{font-size:11px;color:var(--ink-light);margin-top:6px;}
+    .copy-row{display:flex;justify-content:flex-end;margin-top:8px;}
+    .copy-btn{font-family:'IBM Plex Sans',sans-serif;font-size:11px;font-weight:500;padding:4px 12px;background:transparent;border:1px solid var(--border);border-radius:4px;cursor:pointer;color:var(--ink-light);transition:all .12s;}
+    .copy-btn:hover{background:var(--surface);color:var(--ink);}
+    .copy-btn.copied{color:var(--green);border-color:var(--green);}
+    .quick-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;margin-bottom:16px;}
+    .quick-title{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-light);margin-bottom:12px;}
+    .quick-grid{display:flex;flex-wrap:wrap;gap:8px;}
+    .quick-chip{padding:6px 14px;background:var(--bg);border:1px solid var(--border);border-radius:20px;font-family:'IBM Plex Mono',monospace;font-size:12px;cursor:pointer;color:var(--ink-mid);transition:all .12s;}
+    .quick-chip:hover{background:var(--blue-light);border-color:var(--blue-border);color:var(--blue);}
+    .utility-bar{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px;}
     .utility-bar-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-light);width:100%;margin-bottom:4px;}
-    .share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;font-size:12px;font-weight:500;font-family:'DM Sans',sans-serif;cursor:pointer;border:1px solid var(--border);text-decoration:none;transition:opacity .15s,transform .1s;color:white;background:var(--ink-mid);}
+    .share-btn{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:20px;font-size:12px;font-weight:500;font-family:'IBM Plex Sans',sans-serif;cursor:pointer;border:1px solid var(--border);text-decoration:none;transition:opacity .15s,transform .1s;color:white;background:var(--ink-mid);}
     .share-btn:hover{opacity:.85;transform:translateY(-1px);}
     .share-btn.tw{background:#000;border-color:#000;}
     .share-btn.fb{background:#1877F2;border-color:#1877F2;}
     .share-btn.wa{background:#25D366;border-color:#25D366;color:#000;}
     .share-btn.rd{background:#FF4500;border-color:#FF4500;}
     .share-btn.cl{background:transparent;color:var(--ink-mid);border-color:var(--border);}
-    .share-btn.cl.copied{border-color:var(--teal);color:var(--teal);}
-    .related-section{margin-top:24px;}
-    .related-section h2{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:14px;}
+    .share-btn.cl.copied{border-color:var(--green);color:var(--green);}
+    .related-section{margin-bottom:16px;}
+    .related-section h2{font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:14px;}
     .related-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;}
-    .related-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-decoration:none;transition:border-color .15s;display:block;}
-    .related-card:hover{border-color:var(--rust);}
+    .related-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:16px;text-decoration:none;transition:border-color .15s;display:block;}
+    .related-card:hover{border-color:var(--blue);}
     .related-card-title{font-size:.9rem;font-weight:500;color:var(--ink);margin-bottom:4px;}
     .related-card-desc{font-size:12px;color:var(--ink-light);}
     .related-card-emoji{font-size:1.4rem;margin-bottom:8px;}
-    .embed-section{margin-top:16px;background:white;border:1px solid var(--border);border-radius:var(--radius);padding:20px;}
+    .embed-section{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:0;}
     .embed-section h3{font-size:11px;font-weight:500;color:var(--ink-light);margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase;}
-    .embed-code{background:var(--cream-dark);border:1px solid var(--border);border-radius:var(--radius);padding:12px;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-mid);word-break:break-all;margin-bottom:10px;line-height:1.6;}
-    .embed-copy-btn{padding:7px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink-mid);cursor:pointer;transition:all .12s;}
-    .embed-copy-btn:hover{border-color:var(--rust);color:var(--rust);}
-    .embed-copy-btn.copied{border-color:var(--teal);color:var(--teal);}
-    .ad-inline{background:var(--cream-dark);border:1px dashed var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;color:var(--ink-light);font-size:11px;letter-spacing:.08em;text-transform:uppercase;min-height:90px;display:flex;align-items:center;justify-content:center;margin:24px 0;}
+    .embed-code{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:12px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink-mid);word-break:break-all;margin-bottom:10px;line-height:1.6;}
+    .embed-copy-btn{padding:7px 16px;background:transparent;border:1px solid var(--border);border-radius:var(--radius);font-family:'IBM Plex Sans',sans-serif;font-size:12px;color:var(--ink-mid);cursor:pointer;transition:all .12s;}
+    .embed-copy-btn:hover{border-color:var(--blue);color:var(--blue);}
+    .embed-copy-btn.copied{border-color:var(--green);color:var(--green);}
+    .ad-inline{background:var(--surface);border:1px dashed var(--border);border-radius:var(--radius-lg);padding:16px;text-align:center;color:var(--ink-light);font-size:11px;letter-spacing:.08em;text-transform:uppercase;min-height:90px;display:flex;align-items:center;justify-content:center;margin:24px 0;}
     .content-section{margin-top:48px;}
-    .content-section h2{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+    .content-section h2{font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
     .content-section p{color:var(--ink-mid);font-size:.95rem;margin-bottom:14px;line-height:1.75;}
     .faq-item{margin-bottom:20px;}
     .faq-item h3{font-size:1rem;font-weight:500;color:var(--ink);margin-bottom:6px;}
     .faq-item p{font-size:.9rem;color:var(--ink-light);margin:0;line-height:1.65;}
-    footer{background:var(--ink);color:var(--ink-light);text-align:center;padding:32px 24px;font-size:13px;margin-top:64px;}
-    footer a{color:#F0A875;text-decoration:none;}
+    code{font-family:'IBM Plex Mono',monospace;background:var(--surface);padding:2px 6px;border-radius:4px;font-size:.9em;}
+    footer{background:var(--ink);color:#64748B;text-align:center;padding:32px 24px;font-size:13px;margin-top:64px;}
+    footer a{color:#60A5FA;text-decoration:none;}
     footer a:hover{text-decoration:underline;}
     footer .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap;}
   </style>
@@ -97,44 +99,53 @@
 <body>
   <div class="ad-banner-top">Advertisement</div>
   <header>
-    <p class="header-eyebrow">Free Online Tool</p>
-    <h1>Word &amp; Character<br><em>Counter</em></h1>
-    <p>Paste or type your text below for an instant word count, character count, reading time, and more.</p>
+    <p class="header-eyebrow">Free Developer Tool</p>
+    <h1>Binary · Hex · <em>Decimal</em><br>Converter</h1>
+    <p>Type in any field and all other bases update instantly. Supports decimal, binary, hexadecimal, and octal.</p>
   </header>
   <main>
     <div class="bookmark-tip"><span>🔖</span><span id="bookmark-text">Press <kbd>Ctrl+D</kbd> to bookmark this tool and come back anytime.</span></div>
-    <div class="stats-bar">
-      <div class="stat-card primary"><div class="stat-label">Words</div><div class="stat-value" id="word-count">0</div></div>
-      <div class="stat-card"><div class="stat-label">Characters</div><div class="stat-value" id="char-count">0</div></div>
-      <div class="stat-card"><div class="stat-label">No spaces</div><div class="stat-value" id="char-no-space">0</div></div>
-      <div class="stat-card"><div class="stat-label">Sentences</div><div class="stat-value" id="sentence-count">0</div></div>
-      <div class="stat-card"><div class="stat-label">Paragraphs</div><div class="stat-value" id="para-count">0</div></div>
-      <div class="stat-card"><div class="stat-label">Read time</div><div class="stat-value" id="read-time">0s</div></div>
+    <div class="bases-grid">
+      <div class="base-card">
+        <div class="base-header"><span class="base-label">Decimal <span style="font-weight:300;color:var(--ink-light)">(Base 10)</span></span><span class="base-badge badge-decimal">DEC</span></div>
+        <input class="base-input" type="text" id="input-decimal" placeholder="0–9" oninput="convert('decimal')" />
+        <div class="base-hint">Digits: 0 1 2 3 4 5 6 7 8 9</div>
+        <div class="copy-row"><button class="copy-btn" data-base="decimal" onclick="copyVal('decimal',this)">Copy</button></div>
+      </div>
+      <div class="base-card">
+        <div class="base-header"><span class="base-label">Binary <span style="font-weight:300;color:var(--ink-light)">(Base 2)</span></span><span class="base-badge badge-binary">BIN</span></div>
+        <input class="base-input" type="text" id="input-binary" placeholder="0 and 1 only" oninput="convert('binary')" />
+        <div class="base-hint">Digits: 0 1</div>
+        <div class="copy-row"><button class="copy-btn" onclick="copyVal('binary',this)">Copy</button></div>
+      </div>
+      <div class="base-card">
+        <div class="base-header"><span class="base-label">Hexadecimal <span style="font-weight:300;color:var(--ink-light)">(Base 16)</span></span><span class="base-badge badge-hex">HEX</span></div>
+        <input class="base-input" type="text" id="input-hex" placeholder="0–9, A–F" oninput="convert('hex')" />
+        <div class="base-hint">Digits: 0 1 2 3 4 5 6 7 8 9 A B C D E F</div>
+        <div class="copy-row"><button class="copy-btn" onclick="copyVal('hex',this)">Copy</button></div>
+      </div>
+      <div class="base-card">
+        <div class="base-header"><span class="base-label">Octal <span style="font-weight:300;color:var(--ink-light)">(Base 8)</span></span><span class="base-badge badge-octal">OCT</span></div>
+        <input class="base-input" type="text" id="input-octal" placeholder="0–7 only" oninput="convert('octal')" />
+        <div class="base-hint">Digits: 0 1 2 3 4 5 6 7</div>
+        <div class="copy-row"><button class="copy-btn" onclick="copyVal('octal',this)">Copy</button></div>
+      </div>
     </div>
-    <div class="textarea-wrapper">
-      <textarea id="text-input" placeholder="Start typing or paste your text here..." oninput="analyzeText()" autofocus></textarea>
-      <button class="clear-btn" onclick="clearText()">Clear</button>
-    </div>
-    <div class="limits-row">
-      <span class="limits-label">Limits:</span>
-      <button class="limit-chip" onclick="setLimit(280,this)">Twitter/X</button>
-      <button class="limit-chip" onclick="setLimit(2200,this)">Instagram</button>
-      <button class="limit-chip" onclick="setLimit(500,this)">LinkedIn</button>
-      <button class="limit-chip" onclick="setLimit(160,this)">Meta desc</button>
-      <button class="limit-chip" onclick="setLimit(60,this)">Title tag</button>
-      <span class="limit-indicator" id="limit-indicator"></span>
-    </div>
-    <div class="progress-bar" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-    <div class="extra-stats">
-      <div class="extra-stats-grid">
-        <div class="extra-stat"><div class="extra-stat-label">Unique words</div><div class="extra-stat-value" id="unique-words">0</div></div>
-        <div class="extra-stat"><div class="extra-stat-label">Avg word length</div><div class="extra-stat-value" id="avg-word-len">0</div></div>
-        <div class="extra-stat"><div class="extra-stat-label">Longest word</div><div class="extra-stat-value" id="longest-word">—</div></div>
-        <div class="extra-stat"><div class="extra-stat-label">Speaking time</div><div class="extra-stat-value" id="speak-time">0s</div></div>
+    <div class="quick-section">
+      <div class="quick-title">Quick examples (decimal)</div>
+      <div class="quick-grid">
+        <button class="quick-chip" onclick="loadExample(255)">255</button>
+        <button class="quick-chip" onclick="loadExample(0)">0</button>
+        <button class="quick-chip" onclick="loadExample(1024)">1024</button>
+        <button class="quick-chip" onclick="loadExample(65535)">65535</button>
+        <button class="quick-chip" onclick="loadExample(42)">42</button>
+        <button class="quick-chip" onclick="loadExample(16)">16</button>
+        <button class="quick-chip" onclick="loadExample(256)">256</button>
+        <button class="quick-chip" onclick="loadExample(4096)">4096</button>
       </div>
     </div>
     <div class="utility-bar">
-      <span class="utility-bar-label">Share this tool with friends &amp; colleagues:</span>
+      <span class="utility-bar-label">Share this tool with your dev friends &amp; classmates:</span>
       <a class="share-btn tw" id="sh-tw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
       <a class="share-btn fb" id="sh-fb" href="#" target="_blank" rel="noopener">Facebook</a>
       <a class="share-btn wa" id="sh-wa" href="#" target="_blank" rel="noopener">WhatsApp</a>
@@ -148,26 +159,27 @@
     <div class="embed-section">
       <h3>Embed this tool on your site</h3>
       <p style="font-size:12px;color:var(--ink-light);margin-bottom:10px;">Free to embed. Includes a "Powered by quickutils.tools" link.</p>
-      <div class="embed-code">&lt;iframe src="https://words.quickutils.tools/?embed=1" width="100%" height="520" frameborder="0" title="Word and Character Counter — quickutils.tools"&gt;&lt;/iframe&gt;</div>
+      <div class="embed-code">&lt;iframe src="https://binary.quickutils.tools/?embed=1" width="100%" height="520" frameborder="0" title="Binary Hex Decimal Converter — quickutils.tools"&gt;&lt;/iframe&gt;</div>
       <button class="embed-copy-btn" onclick="copyEmbed(this)">Copy embed code</button>
     </div>
     <div class="ad-inline">Advertisement · 728×90</div>
     <div class="content-section">
       <h2>Frequently Asked Questions</h2>
-      <div class="faq-item"><h3>How many words is a 5 minute read?</h3><p>At an average reading speed of 200–250 words per minute, a 5 minute read is approximately <strong>1,000–1,250 words</strong>. This tool calculates reading time automatically based on 225 words per minute.</p></div>
-      <div class="faq-item"><h3>How many characters is a tweet?</h3><p>Twitter/X allows up to <strong>280 characters</strong> per post for standard accounts. Click the "Twitter/X" limit button above to track your count in real time.</p></div>
-      <div class="faq-item"><h3>How many characters should a meta description be?</h3><p>Google typically displays meta descriptions up to <strong>155–160 characters</strong>. Anything longer gets truncated in search results. Use the "Meta desc" limit button above to stay within range.</p></div>
-      <div class="faq-item"><h3>Does this tool count spaces as characters?</h3><p>Yes — the "Characters" count includes spaces. The "No spaces" count excludes them. Both are shown above so you can use whichever metric your platform requires.</p></div>
-      <div class="faq-item"><h3>How many words is a 1,000 character passage?</h3><p>A 1,000 character passage contains approximately <strong>150–170 words</strong>, depending on average word length. English words average around 5–6 characters including spaces.</p></div>
+      <div class="faq-item"><h3>What is 255 in binary?</h3><p>255 in binary is <strong>11111111</strong> — eight 1s. This is the maximum value of a single byte (8 bits), and why RGB color values go from 0 to 255.</p></div>
+      <div class="faq-item"><h3>What is 0xFF in decimal?</h3><p><code>0xFF</code> in hexadecimal is <strong>255</strong> in decimal. Hex is commonly used in programming because each hex digit maps exactly to 4 binary bits.</p></div>
+      <div class="faq-item"><h3>How do you convert binary to decimal?</h3><p>Each binary digit represents a power of 2, starting from the right at 2⁰. For example, <code>1010</code> = (1×8) + (0×4) + (1×2) + (0×1) = 10 in decimal.</p></div>
+      <div class="faq-item"><h3>Why do computers use binary?</h3><p>Computers use binary because electronic circuits have two natural states: on (1) and off (0). This makes binary the simplest and most reliable way to represent data in hardware.</p></div>
+      <div class="faq-item"><h3>What is hexadecimal used for?</h3><p>Hexadecimal is widely used in programming — HTML/CSS color codes (like <code>#FF5733</code>), memory addresses, and IPv6 addresses are all commonly expressed in hex because it's more compact than binary.</p></div>
+      <div class="faq-item"><h3>What is octal used for?</h3><p>Octal (base 8) is still used today in Unix/Linux file permissions. For example, <code>chmod 755</code> uses octal to represent read/write/execute permissions.</p></div>
     </div>
   </main>
   <footer>
     <div class="footer-links"><a href="/privacy.html">Privacy Policy</a><a href="/about.html">About</a><a href="https://quickutils.tools">All Tools</a></div>
-    <p>&copy; 2026 <a href="https://quickutils.tools">quickutils.tools</a> — Text is processed in your browser. Nothing is stored or transmitted.</p>
+    <p>&copy; 2026 <a href="https://quickutils.tools">quickutils.tools</a> — All conversions happen in your browser. No data is stored.</p>
   </footer>
   <script>
-    const TOOL_URL = 'https://words.quickutils.tools/';
-    const SHARE_MSG = encodeURIComponent('Free word & character counter — great for writers, students, and SEO: ' + TOOL_URL);
+    const TOOL_URL = 'https://binary.quickutils.tools/';
+    const SHARE_MSG = encodeURIComponent('Handy free binary/hex/decimal converter — great for devs and CS students: ' + TOOL_URL);
     const ENC_URL = encodeURIComponent(TOOL_URL);
 
     const isMac = /mac/i.test(navigator.platform);
@@ -180,7 +192,7 @@
     document.getElementById('sh-tw').href = `https://twitter.com/intent/tweet?text=${SHARE_MSG}`;
     document.getElementById('sh-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${ENC_URL}`;
     document.getElementById('sh-wa').href = `https://wa.me/?text=${SHARE_MSG}`;
-    document.getElementById('sh-rd').href = `https://www.reddit.com/submit?url=${ENC_URL}&title=${encodeURIComponent('Free word and character counter for writers, students, and SEO')}`;
+    document.getElementById('sh-rd').href = `https://www.reddit.com/submit?url=${ENC_URL}&title=${encodeURIComponent('Free binary/hex/decimal converter for developers and CS students')}`;
 
     function copyLink() {
       navigator.clipboard.writeText(TOOL_URL).then(() => {
@@ -197,60 +209,29 @@
       });
     }
 
-    let currentLimit = null;
-    function analyzeText() {
-      const text = document.getElementById('text-input').value;
-      const words = text.trim() === '' ? [] : text.trim().split(/\s+/);
-      const wc = words.length === 1 && words[0] === '' ? 0 : words.length;
-      const cc = text.length;
-      const cn = text.replace(/\s/g,'').length;
-      const sc = text.split(/[.!?]+/).filter(s => s.trim().length > 0).length;
-      const pc = text.split(/\n\s*\n/).filter(p => p.trim().length > 0).length;
-      const rm = wc / 225;
-      const rt = rm < 1 ? `${Math.ceil(rm*60)}s` : `${Math.ceil(rm)}m`;
-      const sm = wc / 130;
-      const st = sm < 1 ? `${Math.ceil(sm*60)}s` : `${Math.ceil(sm)}m`;
-      const uw = new Set(words.map(w => w.toLowerCase().replace(/[^a-z]/g,''))).size;
-      const al = wc > 0 ? (words.reduce((a,w) => a + w.replace(/[^a-zA-Z]/g,'').length, 0) / wc).toFixed(1) : 0;
-      const lw = wc > 0 ? words.reduce((a,b) => a.length > b.length ? a : b).replace(/[^a-zA-Z]/g,'') : '—';
-      document.getElementById('word-count').textContent = wc.toLocaleString();
-      document.getElementById('char-count').textContent = cc.toLocaleString();
-      document.getElementById('char-no-space').textContent = cn.toLocaleString();
-      document.getElementById('sentence-count').textContent = sc.toLocaleString();
-      document.getElementById('para-count').textContent = pc.toLocaleString();
-      document.getElementById('read-time').textContent = rt;
-      document.getElementById('unique-words').textContent = uw.toLocaleString();
-      document.getElementById('avg-word-len').textContent = al;
-      document.getElementById('longest-word').textContent = lw || '—';
-      document.getElementById('speak-time').textContent = st;
-      if (currentLimit) updateLimit(cc);
+    const validators = { decimal:/^[0-9]*$/, binary:/^[01]*$/, hex:/^[0-9a-fA-F]*$/, octal:/^[0-7]*$/ };
+    function convert(source) {
+      const input = document.getElementById(`input-${source}`);
+      const raw = input.value.trim();
+      input.classList.remove('error');
+      if (raw === '') { clearAll(source); return; }
+      if (!validators[source].test(raw)) { input.classList.add('error'); return; }
+      let dec;
+      switch(source) { case 'decimal': dec=parseInt(raw,10); break; case 'binary': dec=parseInt(raw,2); break; case 'hex': dec=parseInt(raw,16); break; case 'octal': dec=parseInt(raw,8); break; }
+      if (isNaN(dec) || dec < 0) { input.classList.add('error'); return; }
+      const r = { decimal:dec.toString(10), binary:dec.toString(2), hex:dec.toString(16).toUpperCase(), octal:dec.toString(8) };
+      for (const [b,v] of Object.entries(r)) { if (b !== source) { document.getElementById(`input-${b}`).value = v; document.getElementById(`input-${b}`).classList.remove('error'); } }
     }
-
-    function setLimit(limit, el) {
-      document.querySelectorAll('.limit-chip').forEach(c => c.classList.remove('active'));
-      if (currentLimit === limit) {
-        currentLimit = null;
-        document.getElementById('progress-bar').style.display = 'none';
-        document.getElementById('limit-indicator').textContent = '';
-        return;
-      }
-      currentLimit = limit; el.classList.add('active');
-      document.getElementById('progress-bar').style.display = 'block';
-      updateLimit(document.getElementById('text-input').value.length);
+    function clearAll(except) { ['decimal','binary','hex','octal'].forEach(b => { if (b !== except) document.getElementById(`input-${b}`).value = ''; }); }
+    function copyVal(base, btn) {
+      const val = document.getElementById(`input-${base}`).value;
+      if (!val) return;
+      navigator.clipboard.writeText(val).then(() => {
+        btn.textContent = 'Copied!'; btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
     }
-
-    function updateLimit(cc) {
-      if (!currentLimit) return;
-      const pct = Math.min((cc / currentLimit) * 100, 100);
-      const over = cc > currentLimit;
-      const fill = document.getElementById('progress-fill');
-      fill.style.width = pct + '%'; fill.className = 'progress-fill' + (over ? ' over' : '');
-      const ind = document.getElementById('limit-indicator');
-      ind.textContent = over ? `${cc - currentLimit} over limit` : `${currentLimit - cc} remaining`;
-      ind.className = 'limit-indicator' + (over ? ' over' : '');
-    }
-
-    function clearText() { document.getElementById('text-input').value = ''; analyzeText(); }
+    function loadExample(dec) { document.getElementById('input-decimal').value = dec; convert('decimal'); }
 
     // Embed mode
     const _p = new URLSearchParams(window.location.search);
@@ -261,9 +242,9 @@
       document.querySelector('.embed-section') && (document.querySelector('.embed-section').style.display = 'none');
       document.querySelector('.content-section') && (document.querySelector('.content-section').style.display = 'none');
       document.querySelector('.ad-inline') && (document.querySelector('.ad-inline').style.display = 'none');
-      document.querySelector('footer').innerHTML = '<div style="text-align:center;padding:12px;font-size:12px;font-family:sans-serif;color:#8A7D65;">Powered by <a href="https://quickutils.tools" target="_blank" style="color:#C4622D;text-decoration:none;font-weight:500;">quickutils.tools</a> — free online utility tools</div>';
+      document.querySelector('footer').innerHTML = '<div style="text-align:center;padding:12px;font-size:12px;font-family:sans-serif;color:#667085;">Powered by <a href="https://quickutils.tools" target="_blank" style="color:#2563EB;text-decoration:none;font-weight:500;">quickutils.tools</a> — free online utility tools</div>';
     }
   </script>
-  <script src="https://quickutils.tools/tools.js" onload="renderRelatedTools({currentUrl:'https://words.quickutils.tools/'})"></script>
+  <script src="https://quickutils.tools/tools.js" onload="renderRelatedTools({currentUrl:'https://binary.quickutils.tools/'})"></script>
 </body>
 </html>
